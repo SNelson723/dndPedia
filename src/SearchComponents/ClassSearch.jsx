@@ -1,9 +1,14 @@
+import { useState, useEffect } from 'react';
+import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
 
-const ClassSearch = () => {
+const ClassSearch = ({ classes }) => {
+  const [selectedClass, setSelectedClass] = useState('');
 
   return (
     <div className="background ">
-    Class Search
+    {classes.map((class, i) => (
+
+    ))}
   </div>
   )
 };
