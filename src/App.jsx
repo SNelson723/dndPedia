@@ -1,10 +1,7 @@
 // import { useState } from 'react';
-import './App.css';
 
 /**
- * 
  * TODO:
- * 
  *  Need a FormSelector component to determine the API link
  *  Need to create a container for cards so I can click on all the options
  *  Need a space for clicking Submit or Cancel the query
