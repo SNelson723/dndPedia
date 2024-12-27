@@ -1,7 +1,8 @@
-// import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavBar from "./NavBar/NavBar";
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements, Outlet } from "react-router-dom";
 import GeneralSearch from "./SearchComponents/GeneralSearch";
+import ClassSearch from "./SearchComponents/ClassSearch";
 
 /**
  * TODO:
@@ -17,6 +18,7 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<GeneralSearch />} />
+        <Route path="/class" element={<ClassSearch />} />
         {/* <Route path="designs" element={<Designs designs={designs} />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} /> */}
