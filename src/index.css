@@ -2,3 +2,10 @@
   background-color: slategray;
   height: 95vh;
 }
+
+.card {
+  background: #eaecf0;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(236, 210, 210, 0.36);
+}
