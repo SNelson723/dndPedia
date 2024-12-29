@@ -16,15 +16,13 @@ const ClassSearch = ({ classes }) => {
     getSelectedClassInfo();
   }, [selectedClass])
 
-
   if (selectedClass) {
     console.log('Working?', selectedClassInfo);
     return (
       <div className='py-4' style={{backgroundColor: '#2F4F4F', minHeight: '95vh'}}>
-        <h2 style={{color: 'whitesmoke'}} className='text-center mb-5'>{selectedClassInfo.name}</h2>
-        {/* <Button onClick={() => setSelectedClass('')}>Return</Button> */}
-        <Container>
-          howdy
+        <h2 style={{color: 'whitesmoke'}} className='text-center mb-4'>{selectedClassInfo.name}</h2>
+        <Container className='rounded py-2' style={{backgroundColor: 'oldlace'}}>
+
         </Container>
       </div>
     );
