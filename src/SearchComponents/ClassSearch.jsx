@@ -1,17 +1,31 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 const ClassSearch = ({ classes }) => {
   const [selectedClass, setSelectedClass] = useState('');
+  const [selectedClassInfo, setSelectedClassInfo] = useState({});
 
-  console.log('Class Search', classes);
+  useEffect(() => {
+    const getSelectedClassInfo = async () => {
+      const { data } = await axios.get(`https://www.dnd5eapi.co/api/classes/${selectedClass}`);
+      setSelectedClassInfo(data);
+    };
+
+    getSelectedClassInfo();
+  }, [selectedClass])
+
 
   if (selectedClass) {
+    console.log('Working?', selectedClassInfo);
     return (
-      <div>
-        {selectedClass}
-        <Button onClick={() => setSelectedClass('')}>Return</Button>
+      <div className='py-4' style={{backgroundColor: '#2F4F4F', minHeight: '95vh'}}>
+        <h2 style={{color: 'whitesmoke'}} className='text-center mb-5'>{selectedClassInfo.name}</h2>
+        {/* <Button onClick={() => setSelectedClass('')}>Return</Button> */}
+        <Container>
+          howdy
+        </Container>
       </div>
     );
   }
