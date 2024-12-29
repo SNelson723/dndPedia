@@ -50,9 +50,11 @@ const ClassSearch = ({ classes }) => {
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
-                    <ClassTab />
+                    <ClassTab classInfo={selectedClassInfo} type='general' />
                   </Tab.Pane>
-                  <Tab.Pane eventKey="second">And pass in the appropriate data into it via the nav item title</Tab.Pane>
+                  <Tab.Pane eventKey="second">
+                    <ClassTab classInfo={selectedClassInfo} type='proficiency' />
+                  </Tab.Pane>
                 </Tab.Content>
               </Col>
             </Row>

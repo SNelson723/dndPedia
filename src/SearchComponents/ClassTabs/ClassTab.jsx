@@ -1,7 +1,11 @@
-const ClassTab = () => {
+const ClassTab = ({ classInfo, type }) => {
+
+  // console.log(classInfo, type);
+
   return (
     <div>
-      Class Tab!
+      {type === 'general' ? <div>General</div> : null}
+      {type === 'proficiency' ? <div>Proficiencies</div> : null}
     </div>
   );
 };
