@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Image, Tab, Nav, Button } from 'react-bootstrap';
 import axios from 'axios';
