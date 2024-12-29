@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Image, Tab, Nav, Button } from 'react-bootstrap';
 import axios from 'axios';
+import { SlActionUndo } from "react-icons/sl";
+import ClassTab from './ClassTabs/ClassTab';
 
 const ClassSearch = ({ classes }) => {
   const [selectedClass, setSelectedClass] = useState('');
@@ -22,12 +24,12 @@ const ClassSearch = ({ classes }) => {
   };
 
   if (selectedClass) {
-    // console.log('Working?', selectedClassInfo);
+    console.log('Working?', selectedClassInfo);
     return (
       <div className='py-4' style={{backgroundColor: '#2F4F4F', minHeight: '95vh'}}>
         <h2 style={{color: 'whitesmoke'}} className='text-center mb-4'>{selectedClassInfo.name}</h2>
 
-        <Button className='mb-2' style={{marginLeft: '6.75rem'}} onClick={() => setSelectedClass('')}>Back</Button>
+        <Button className='mb-2' style={{marginLeft: '6.75rem'}} onClick={() => setSelectedClass('')}><SlActionUndo className='me-1' /> Back</Button>
         <Container className='rounded py-2' style={{backgroundColor: 'oldlace'}}>
           <Tab.Container id="left-tabs-example" activeKey={activeKey} onSelect={handleSelect}>
             <Row>
@@ -47,7 +49,9 @@ const ClassSearch = ({ classes }) => {
               </Col>
               <Col sm={9}>
                 <Tab.Content>
-                  <Tab.Pane eventKey="first">Import a new display component here</Tab.Pane>
+                  <Tab.Pane eventKey="first">
+                    <ClassTab />
+                  </Tab.Pane>
                   <Tab.Pane eventKey="second">And pass in the appropriate data into it via the nav item title</Tab.Pane>
                 </Tab.Content>
               </Col>
