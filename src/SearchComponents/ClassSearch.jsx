@@ -12,12 +12,15 @@ const ClassSearch = ({ classes }) => {
         <Row  xs={1} md={2} lg={3} className="g-4">
           {classes.map((classObj, i) => (
             <Col key={i}>
-              <Card className='card card w-75 mx-auto'>
-                <Image
-                  src={`../src/resources/${classObj.name}.jpg`}
-                  alt={classObj.name}
-                  fliud
-                />
+              <Card className='card card w-75 mx-auto rounded'>
+                <div className='image-container'>
+                  <Image
+                    src={`../src/resources/${classObj.name}.jpg`}
+                    alt={classObj.name}
+                    fluid
+                  />
+
+                </div>
               </Card>
             </Col>
           ))}
