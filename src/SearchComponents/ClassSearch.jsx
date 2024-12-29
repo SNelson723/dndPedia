@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Image, Tab, Nav, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 const ClassSearch = ({ classes }) => {
   const [selectedClass, setSelectedClass] = useState('');
   const [selectedClassInfo, setSelectedClassInfo] = useState({});
+  const [activeKey, setActiveKey] = useState('first');
 
   useEffect(() => {
     const getSelectedClassInfo = async () => {
@@ -16,13 +17,42 @@ const ClassSearch = ({ classes }) => {
     getSelectedClassInfo();
   }, [selectedClass])
 
+  const handleSelect = (eventKey) => {
+    setActiveKey(eventKey);
+  };
+
   if (selectedClass) {
-    console.log('Working?', selectedClassInfo);
+    // console.log('Working?', selectedClassInfo);
     return (
       <div className='py-4' style={{backgroundColor: '#2F4F4F', minHeight: '95vh'}}>
         <h2 style={{color: 'whitesmoke'}} className='text-center mb-4'>{selectedClassInfo.name}</h2>
-        <Container className='rounded py-2' style={{backgroundColor: 'oldlace'}}>
 
+        <Button className='mb-2' style={{marginLeft: '6.75rem'}} onClick={() => setSelectedClass('')}>Back</Button>
+        <Container className='rounded py-2' style={{backgroundColor: 'oldlace'}}>
+          <Tab.Container id="left-tabs-example" activeKey={activeKey} onSelect={handleSelect}>
+            <Row>
+              <Col sm={3}>
+                <Nav variant="pills" className="flex-column">
+                  <Nav.Item>
+                    <Nav.Link eventKey="first" className={`text-black ${activeKey === 'first' ? 'active' : ''}`}>
+                      General/Overview
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="second" className={`text-black ${activeKey === 'second' ? 'active' : ''}`}>
+                      Proficiencies
+                    </Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Col>
+              <Col sm={9}>
+                <Tab.Content>
+                  <Tab.Pane eventKey="first">Import a new display component here</Tab.Pane>
+                  <Tab.Pane eventKey="second">And pass in the appropriate data into it via the nav item title</Tab.Pane>
+                </Tab.Content>
+              </Col>
+            </Row>
+          </Tab.Container>
         </Container>
       </div>
     );
