@@ -27,13 +27,17 @@ const abilities = {
 
 const ClassTab = ({ classInfo, type }) => {
 
-  // console.log(classInfo, type);
+  console.log(classInfo, type);
   const primaryAbility = skills[classInfo.index];
   let savingThrows;
+  let weaponProf;
 
   if (classInfo.saving_throws) {
     savingThrows = classInfo.saving_throws.map(obj => abilities[obj.index]).join(' and ');
+    // weaponProf = classInfo.proficiencies.filter(obj => obj.index.contains('weapons'));
   }
+
+  console.log(weaponProf)
 
   return (
     <div>
